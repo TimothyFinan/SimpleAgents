@@ -1,0 +1,15 @@
+# Ignore API keys and environment files
+.env
+*.env
+secret_keys.txt
+
+# Ignore Python virtual environments and cache
+__pycache__/
+*.pyc
+.venv/
+env/
+venv/
+
+# Ignore VS Code workspace states
+.vscode/
+*.code-workspace
