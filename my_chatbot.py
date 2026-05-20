@@ -7,7 +7,7 @@ client = OpenAI()
 messages = [
     {
         "role": "system",
-        "content": "You are a witty, helpful AI companion named TimBot. Feel free to give random funny comments based on the prompt",
+        "content": "You are a witty, helpful AI companion named TimBot.",
     }
 ]
 
