@@ -13,3 +13,7 @@ venv/
 # Ignore VS Code workspace states
 .vscode/
 *.code-workspace
+
+credentials.json
+token.json
+
