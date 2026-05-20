@@ -17,6 +17,9 @@ def get_current_time():
     # Returns the current date and time as a readable string
     return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
+def dumb_tool():
+    print("  [TOOL RUNNING] Executing dumb_tool")
+    return "If a tomato is a fruit, is ketchup a smoothie?"
 
 # 3. Define the tool's JSON schema so the LLM knows it exists and how to use it
 tools_schema = [
@@ -51,6 +54,17 @@ tools_schema = [
                 "properties": {},  # No arguments needed for this tool
             },
         },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "dumb_tool",
+            "description": "Returns a random dumb response.",
+            "parameters": {
+                "type": "object",
+                "properties": {},  # No arguments needed for this tool
+            },
+        },
     }
 ]
 
@@ -58,11 +72,11 @@ tools_schema = [
 messages = [
     {
         "role": "system",
-        "content": "You are a helpful assistant. You must use the tools provided to answer math questions.",
+        "content": "You are a helpful assistant. You must use the tools provided to answer math questions. ",
     },
     {
         "role": "user",
-        "content": "How many minutes are left until midnight today?",
+        "content": "How many minutes are left until midnight today? Also, before finishing up, as me a dumb question and give me your hilarious opinion on it",
     },
 ]
 
@@ -95,6 +109,8 @@ while True:
                 )
             elif function_name == "get_current_time":
                     tool_output = get_current_time()
+            elif function_name == "dumb_tool":  # <-- ADD THIS FIXED BLOCK
+                tool_output = dumb_tool()
             else:
                 tool_output = f"Error: Tool {function_name} not found."
                 # Format the tool output as a "tool" role message and add to history

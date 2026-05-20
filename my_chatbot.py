@@ -7,11 +7,11 @@ client = OpenAI()
 messages = [
     {
         "role": "system",
-        "content": "You are a witty, helpful AI companion named Jarvis.",
+        "content": "You are a witty, helpful AI companion named TimBot. Feel free to give random funny comments based on the prompt",
     }
 ]
 
-print("Jarvis: Hello! Type 'exit' or 'quit' to end our conversation.\n")
+print("TimBot: Hello! Type 'exit' or 'quit' to end our conversation.\n")
 
 # The Core Chatbot Loop
 while True:
@@ -19,7 +19,7 @@ while True:
     user_input = input("You: ")
 
     if user_input.lower() in ["exit", "quit"]:
-        print("Jarvis: Goodbye!")
+        print("TimBot: Goodbye!")
         break
 
     # 2. Append the human's message to the conversation history
@@ -32,7 +32,7 @@ while True:
     )
 
     reply = response.choices[0].message.content
-    print(f"\nJarvis: {reply}\n")
+    print(f"\nTimBot: {reply}\n")
 
     # 4. Append the AI's response to the history so it remembers the context
     messages.append({"role": "assistant", "content": reply})
