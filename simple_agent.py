@@ -76,7 +76,7 @@ messages = [
     },
     {
         "role": "user",
-        "content": "How many minutes are left until midnight today? Also, before finishing up, as me a dumb question and give me your hilarious opinion on it",
+        "content": "What is 43 + 3?",
     },
 ]
 
@@ -125,4 +125,5 @@ while True:
     else:
         # If the LLM didn't request a tool, it means it has the final answer
         print(f"Final Agent Answer: {response_message.content}")
+      #  print(f"Role of Final Answer: {response_message.role}")
         break
